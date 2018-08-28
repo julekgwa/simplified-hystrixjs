@@ -1,6 +1,6 @@
 # simplified-hystrixjs
 
-A simplified hystrixjs library for Nodejs based on [hystrixjs](https://www.npmjs.com/package/hystrixjs)
+A simplified hystrixjs library for Nodejs based on [opossum](https://www.npmjs.com/package/opossum)
 
 ### Install
 ```
