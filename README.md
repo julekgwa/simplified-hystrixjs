@@ -9,7 +9,7 @@ $ npm i simplified-hystrixjs -S
 
 ### Usage
 ```
-const simplifiedHystrixjs = require('simplified-hystrixjs');
+const { createHystrixCommands, createHystrixStream } = require('simplified-hystrixjs');
 
 function hello(name) {
   return new Promise(function(resolve, reject) {
@@ -19,7 +19,7 @@ function hello(name) {
   });
 }
 
-const serviceCommand = simplifiedHystrixjs.createCommands(hello, { name : 'HelloService'});
+const serviceCommand = createHystrixCommands(hello, { name : 'HelloService'});
 
 app.get('/hello', async (req, res) => {
   try {
@@ -43,35 +43,17 @@ app.get('/hello', async (req, res) => {
 * *statisticalWindowLength* - length of the window to keep track of execution counts metrics (success, failure)
 * *errorThreshold* - error percentage threshold to trip the circuit
 * *timeout* for request
-* *errorHandler* - function to validate if the error response from the service is an actual error.
 * *cbRequestVolume* - minimum number of requests in a rolling window
 * *cbsleep* - how long the circuit breaker should stay opened.
 * *name* - service name
 
 ### Monitoring
 
-install [rxjs@^5.5.0](https://www.npmjs.com/package/rxjs) and expose a monitoring endpoint.
+Expose a monitoring endpoint.
 
 ```
-const hystrixSSEStream = require('hystrixjs').hystrixSSEStream;
+createHystrixStream(app, /*[endpoint]*/); // default /manage/hystrix.stream
 
-function hystrixStreamResponse(request, response) {
-    response.setHeader('Content-Type', 'text/event-stream;charset=UTF-8');
-    response.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
-    response.setHeader('Pragma', 'no-cache');
-    return hystrixSSEStream.toObservable().subscribe(
-        function onNext(sseData) {
-            response.write('data: ' + sseData + '\n\n');
-        },
-        function onError(error) {console.log(error);
-        },
-        function onComplete() {
-            return response.end();
-        }
-    );
-};
-
-app.get('/api/hystrx.stream', hystrixStreamResponse);
 ```
 
 ### Hystrix Dashboard
