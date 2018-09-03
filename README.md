@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/julekgwa/simplified-hystrixjs.svg?branch=master)](https://travis-ci.org/julekgwa/simplified-hystrixjs) [![npm version](https://badge.fury.io/js/simplified-hystrixjs.svg)](https://badge.fury.io/js/simplified-hystrixjs)
+
 # simplified-hystrixjs
 
 A simplified hystrixjs library for Nodejs based on [opossum](https://www.npmjs.com/package/opossum)

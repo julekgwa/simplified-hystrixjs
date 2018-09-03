@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { createCommands } = require('../lib/index');
+const { createHystrixCommands } = require('../lib/index');
 
 function hello(name) {
   return new Promise(function(resolve, reject) {
@@ -10,14 +10,14 @@ function hello(name) {
 }
 
 it('Should return hystrix command instantiated with default options', () => {
-  const func = createCommands(hello);
+  const func = createHystrixCommands(hello);
 
   expect(func.hello).to.be.a('function');
 });
 
 it('Throw an error if not passed a function', () => {
     expect(() => {
-      brake = createCommands();
+      brake = createHystrixCommands();
       brake.test();
     }).to.throw();
   });
