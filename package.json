@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec",
     "lint": "eslint lib",
     "fix": "eslint --fix api"
   },
@@ -38,8 +38,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "husky": "^0.14.3",
+    "mocha": "^5.2.0",
     "restify": "^7.2.1"
   },
   "engines": {
