@@ -11,7 +11,7 @@ $ npm i simplified-hystrixjs -S
 
 ### Usage
 ```
-const { createHystrixCommands, createHystrixStream } = require('simplified-hystrixjs');
+const { createHystrixCommands, createHystrixStream, getPrometheusStream } = require('simplified-hystrixjs');
 
 function hello(name) {
   return new Promise(function(resolve, reject) {
@@ -48,21 +48,26 @@ app.get('/hello', async (req, res) => {
 * *cbRequestVolume* - minimum number of requests in a rolling window
 * *cbsleep* - how long the circuit breaker should stay opened.
 * *name* - service name
+* *isFailure* - emitted when the breaker action fails, called with the error
 
 ### Monitoring
 
-Expose a monitoring endpoint.
+Expose a monitoring endpoint for hystrix stream.
 
 ```
-// returns prometheusHystrix
 createHystrixStream(app, /*[endpoint]*/); // default /manage/hystrix.stream
+```
 
+Prometheus stream.
+
+```
+getPrometheusStream()
 ```
 
 ### Hystrix Dashboard
 
 to run the dashboard, download [standalone-hystrix-dashboard](https://bintray.com/kennedyoliveira/maven/standalone-hystrix-dashboard)
-
+̨
 and run
 ```
 $ java -jar standalone-hystrix-dashboard-{VERSION}-all.jar
