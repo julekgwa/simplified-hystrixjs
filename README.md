@@ -54,6 +54,7 @@ app.get('/hello', async (req, res) => {
 Expose a monitoring endpoint.
 
 ```
+// returns prometheusHystrix
 createHystrixStream(app, /*[endpoint]*/); // default /manage/hystrix.stream
 
 ```
