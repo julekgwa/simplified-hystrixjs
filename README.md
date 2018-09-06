@@ -10,7 +10,7 @@ $ npm i simplified-hystrixjs -S
 ```
 
 ### Usage
-```
+```Javascript
 const { createHystrixCommands, createHystrixStream, getPrometheusStream } = require('simplified-hystrixjs');
 
 function hello(name) {
@@ -56,13 +56,13 @@ app.get('/hello', async (req, res) => {
 
 Expose a monitoring endpoint for hystrix stream.
 
-```
+```Javascript
 createHystrixStream(app, /*[endpoint]*/); // default /manage/hystrix.stream
 ```
 
 Prometheus stream.
 
-```
+```Javascript
 getPrometheusStream()
 ```
 
@@ -71,7 +71,7 @@ getPrometheusStream()
 to run the dashboard, download [standalone-hystrix-dashboard](https://bintray.com/kennedyoliveira/maven/standalone-hystrix-dashboard)
 ̨
 and run
-```
+```java
 $ java -jar standalone-hystrix-dashboard-{VERSION}-all.jar
 ```
 Access the dashboard in  your browser: http://localhost:7979/hystrix-dashboard
