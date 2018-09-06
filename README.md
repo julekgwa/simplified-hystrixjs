@@ -68,6 +68,8 @@ getPrometheusStream()
 
 ### Hystrix Dashboard
 
+![monitorer](images/hystrix-dash.gif)
+
 to run the dashboard, download [standalone-hystrix-dashboard](https://bintray.com/kennedyoliveira/maven/standalone-hystrix-dashboard)
 ̨
 and run
