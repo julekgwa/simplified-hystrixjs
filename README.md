@@ -49,6 +49,8 @@ app.get('/hello', async (req, res) => {
 * *cbsleep* - how long the circuit breaker should stay opened.
 * *name* - service name
 * *isFailure* - emitted when the breaker action fails, called with the error
+* *modifyError* - modifies the error message by adding circuit name. false by default.
+
 
 ### Monitoring
 
