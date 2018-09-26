@@ -1,6 +1,6 @@
 {
   "name": "simplified-hystrixjs",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Netflix's Hystrix latency and fault tolerance library, for Node.js",
   "main": "./lib/index.js",
   "directories": {
