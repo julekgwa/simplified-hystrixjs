@@ -9,7 +9,7 @@
   "scripts": {
     "test": "mocha --reporter spec",
     "lint": "eslint lib",
-    "fix": "eslint --fix api"
+    "fix": "eslint --fix lib"
   },
   "repository": {
     "type": "git",
